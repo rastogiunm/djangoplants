@@ -1,0 +1,7 @@
+{% extends "plantapp/header.html" %}
+
+{% block content %}
+    {% for plant in object_list %}
+        <div><a href="/edit/{{plant.id}}">{{ plant.Name }}</a></div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "plantapp/header.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-2">Name:</div> <!--col-sm-2-->
+    <div class="col-sm-10">{{ plant.Name }}</div>
+    <div class="col-sm-2">Family:</div> <!--col-sm-2-->
+    <div class="col-sm-10">{{ plant.Family }}</div>
+    <div class="col-sm-2">Scientific Name:</div> <!--col-sm-2-->
+    <div class="col-sm-10">{{ plant.ScientificName }}</div>
+    <div class="col-sm-2">Synonyms:</div> <!--col-sm-2-->
+    <div class="col-sm-10">{{ plant.Synonyms }}</div>
+    <div class="col-sm-2">VernacularName:</div> <!--col-sm-2-->
+    <div class="col-sm-10">{{ plant.VernacularName }}</div>
+    <div class="col-sm-2">REDCode:</div> <!--col-sm-2-->
+    <div class="col-sm-10">{{ plant.REDCode }}</div>
+    <div class="col-sm-2">Description:</div> <!--col-sm-2-->
+    <div class="col-sm-10">{{ plant.Description|safe|linebreaks }}</div>
+    <div class="col-sm-2">Update Date:</div> <!--col-sm-2-->
+    <div class="col-sm-10">{{ plant.UpdateDate }}</div>
+</div>
+
+<div style="margin-left:20px;margin-top:20px">
+    <h4>Photos</h4>
+    <ul>
+        {% for photo in plant.plantphoto_set.all %}
+        <li> {{photo.photo_name}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
